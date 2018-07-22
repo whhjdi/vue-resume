@@ -6,9 +6,11 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import AV from 'leancloud-storage'
+import particles from 'particles.js'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+Vue.use(particles)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -26,3 +28,7 @@ new Vue({
     appId: APP_ID,
     appKey: APP_KEY
   });
+
+
+
+ 

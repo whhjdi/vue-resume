@@ -7,18 +7,16 @@
         </router-link>
     </div>
     <div class="right">
-      
-      <ul class="clearfix">
-        <li @click="$emit('getdata')" v-if="!!currentuser.objectId">
-          <a>同步</a></li>
-      <li>
-        <router-link to="/signup">
-          注册
-        </router-link>
-      </li>
-      <li @click="$emit('onClickLogout')" v-if="!!currentuser.objectId">注销</li>
-      <li @click="$emit('onClickSave')" v-show="!!currentuser.objectId">保存</li>
-      <li @click="$emit('previewResume')" >预览</li>
+      <el-row>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary" @click="$emit('getdata')" v-if="!!currentuser.objectId"
+      >同步</el-button>
+      <el-button type="success" @click="$emit('onClickLogout')" v-if="!!currentuser.objectId"
+      >注销</el-button>
+      <el-button type="info" @click="$emit('onClickSave')" v-show="!!currentuser.objectId"
+      >保存</el-button>
+      <el-button type="warning" @click="$emit('previewResume')" >预览</el-button>
+</el-row>
     </ul>
     </div>
     
@@ -66,19 +64,7 @@ export default {
       }
     .right{
       float: right;
-      ul>li{
-        float: left;
-        list-style: none;
-        margin-left: 10px;
-        border: 1px solid #2c3e50;
-        padding: 5px 10px;
-        cursor: pointer;
-        transition:background-color 0.3s ease-in-out;
-        &:hover{
-          background: #2c3e50;
-          color: aliceblue;
-        }
-      }
+
   }
 }
 </style>

@@ -1,20 +1,25 @@
 <template>
   <div class="login">
     <el-form  @submit.native.prevent class="loginForm" label="left">
+      <div class="title">Resume By muxue</div>
+      <div>登录</div>
       <el-form-item label="用户名">
-        <el-input type="text" auto-complete="off" label="left"
+        <el-input type="text" auto-complete="off" label="left" placeholder="请输入用户名"
         v-model="userLogin.userName"></el-input>
       </el-form-item>
       <el-form-item label="密码" >
-        <el-input type="password" auto-complete="off" label="left"
+        <el-input type="password" auto-complete="off" label="left" placeholder="请输入密码"
         v-model="userLogin.userPassword">></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="closeLogin">关闭</el-button>
-        <el-button @click="login" label="left">
+        <el-button @click="closeLogin" type="danger">关闭</el-button>
+          
+        <el-button @click="login" label="left" type="primary">
           登录
           </el-button>
-        
+        <router-link to="/signup">
+          注册
+          </router-link>
       </el-form-item>
     </el-form>
     <!-- <i class="el-icon-error close" @click="closeLogin"></i> -->
@@ -37,7 +42,7 @@ export default {
   },
   methods: {
     closeLogin(){
-      this.$router.go(-1)
+      this.$router.replace('/')
     },
     login(){
         AV.User.logIn(this.userLogin.userName, this.userLogin.userPassword).then((user) =>{
@@ -64,20 +69,21 @@ export default {
   .login{
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #edf4fa;
     padding: 40px;
     
     .loginForm{
       width: 30em;
       margin: 0 auto;
-      border: 1px solid red;
+      border: 1px solid #0069d9;
       padding: 20px;
       position: relative;
-    }
-    .close{
-      position: absolute;
-      top: 0px;
-
+      .title{
+        color: #0069d9;
+        font-weight: bolder;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
     }
   }
 </style>

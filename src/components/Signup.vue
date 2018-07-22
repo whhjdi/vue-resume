@@ -1,6 +1,8 @@
 <template>
   <div class="signup">
     <el-form  @submit.native.prevent class="signupForm" label="left">
+      <div class="title">Resume By muxue</div>
+      <div>注册</div>
       <el-form-item label="用户名">
         <el-input type="text" auto-complete="off" label="left"
         v-model="userSignup.userName"></el-input>
@@ -14,11 +16,13 @@
         v-model="userSignup.userPassword">></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="closeSignup">关闭</el-button>
-        <el-button @click="signup()" label="left">
+        <el-button @click="closeSignup" type="danger">关闭</el-button>
+        <el-button @click="signup()" label="left" type="primary">
           注册
           </el-button>
-        
+        <router-link to="/login">
+          登录
+        </router-link>
       </el-form-item>
     </el-form>
     <!-- <i class="el-icon-error close" @click="closeLogin"></i> -->
@@ -41,7 +45,7 @@ export default {
   },
   methods: {
     closeSignup(){
-      this.$router.go(-1)
+      this.$router.replace('/')
     },
     signup(){
         // 新建 AVUser 对象实例
@@ -58,8 +62,10 @@ export default {
         this.$emit('signupsuccess', newUser.toJSON());
         this.closeSignup()
       },(error) =>{
-          if(error.code==203){
+          if(error.code===203){
             alert('这个邮箱已经被注册了')
+          }else if(error.code===125){
+            alert('请输入正确的邮箱')
           }
       });
     },
@@ -74,15 +80,21 @@ export default {
     .signup{
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #edf4fa;
     padding: 40px;
     
     .signupForm{
       width: 30em;
       margin: 0 auto;
-      border: 1px solid red;
+      border: 1px solid #0069d9;
       padding: 20px;
       position: relative;
+      .title{
+        color: #0069d9;
+        font-weight: bolder;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
     }
   }
 </style>

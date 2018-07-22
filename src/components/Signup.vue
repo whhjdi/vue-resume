@@ -25,7 +25,6 @@
         </router-link>
       </el-form-item>
     </el-form>
-    <!-- <i class="el-icon-error close" @click="closeLogin"></i> -->
   </div>
 </template>
 
@@ -40,7 +39,6 @@ export default {
         userEmail:'',
         userPassword:''
       },
-
     }
   },
   methods: {

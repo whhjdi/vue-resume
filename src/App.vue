@@ -11,7 +11,9 @@
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
       <Preview :resume="resume"></Preview>
     </main>
-    <div @click="previewMode = false" class="closePreview" v-show="previewMode===true">退出预览</div>
+    <el-button type="danger" 
+    @click="previewMode = false" class="closePreview" v-show="previewMode===true"
+    >退出预览</el-button>
     <router-view
       @signinsuccess="signinsuccess"
       @signupsuccess="signupsuccess"
@@ -75,7 +77,6 @@ export default {
 mounted(){
   },
   methods:{
-    
     //获取数据
     getdata(){
       console.log("同步")
@@ -99,7 +100,6 @@ mounted(){
     },
     // 注册成功
     signupsuccess(user){
-      alert('注册成功')
       if(!!this.currentUser.objectId){
         console.log(1)
         return 
@@ -159,9 +159,11 @@ body{
   box-sizing: border-box;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Helvetica Neue",Helvetica,
+  "PingFang SC","Hiragino Sans GB",
+  "Microsoft YaHei","微软雅黑",
+  Arial,sans-serif;
+
   text-align: center;
   color: #2c3e50;
   height: 100vh;
@@ -198,15 +200,7 @@ body{
   position: fixed;
   top: 10px;
   right: 20px;
-  border: 1px solid #2c3e50;
-  padding: 5px 10px;
   cursor: pointer;
-  transition:background-color 0.3s ease-in-out;
-  background: #e6666e;
   color: white;
 }
-  .closePreview:hover{
-      background: #000;
-      color: aliceblue;
-    }
 </style>

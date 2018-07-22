@@ -29,6 +29,7 @@
 
 export default {
   props:['profile'],
+  name: 'Profile',
   data() {
     return {
 

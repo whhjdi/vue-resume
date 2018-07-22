@@ -43,6 +43,7 @@ import PhoneEdit from './PhoneEdit'
 
 export default {
   props:['resume'],
+  name: 'Edit',
   data() {
     return {
       icons:['meh','books','xiangmu1','woorks','phone'],

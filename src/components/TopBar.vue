@@ -1,15 +1,24 @@
 <template>
   <div class="header clearfix">
     <div class="left">
-      <a href="#">Resume By muxue</a> 
+      <a href="#">Resume By muxue</a> |
+      <router-link to="/login">
+      <a href="#">{{currentuser.userName||'未登录'}}</a>
+        </router-link>
     </div>
     <div class="right">
       
       <ul class="clearfix">
-      <li>保存</li>
-      <li>登录</li>
-      <li>注册</li>
-      <li @click="$emit('previewResume')">预览</li>
+        <li @click="$emit('getdata')" v-if="!!currentuser.objectId">
+          <a>同步</a></li>
+      <li>
+        <router-link to="/signup">
+          注册
+        </router-link>
+      </li>
+      <li @click="$emit('onClickLogout')" v-if="!!currentuser.objectId">注销</li>
+      <li @click="$emit('onClickSave')" v-show="!!currentuser.objectId">保存</li>
+      <li @click="$emit('previewResume')" >预览</li>
     </ul>
     </div>
     
@@ -17,14 +26,16 @@
 </template>
 
 <script>
+
 export default {
+  props:['currentuser'],
   data() {
     return {
       
     }
   },
   methods: {
-
+ 
   },
   components: {
 

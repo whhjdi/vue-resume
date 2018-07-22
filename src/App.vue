@@ -1,11 +1,21 @@
 <template>
   <div id="app">
-    <top-bar @previewResume="previewMode = true" v-show="previewMode===false"></top-bar>
+    <top-bar v-show="previewMode===false"
+    :currentuser="currentUser"
+    @previewResume="previewMode = true" 
+    @onClickLogout="logout"
+    @onClickSave="save"
+    @getdata="getdata()"
+    ></top-bar>
     <main>
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
       <Preview :resume="resume"></Preview>
     </main>
     <div @click="previewMode = false" class="closePreview" v-show="previewMode===true">退出预览</div>
+    <router-view
+      @signinsuccess="signinsuccess"
+      @signupsuccess="signupsuccess"
+    ></router-view>
   </div>
 </template>
 
@@ -13,6 +23,10 @@
 import TopBar from './components/TopBar'
 import Edit from './components/Edit'
 import Preview from './components/Preview'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import AV from 'leancloud-storage'
+
 export default {
   name: 'App',
   data(){
@@ -40,16 +54,95 @@ export default {
           weixin:'1',qq:'2',github:'3',blog:'4',zhihu:'5',weibo:'6'
           }
         
+      },
+      currentUser: {
+        userName:'',
+        userEmail: '',
+        objectId:''
+      },
+      userSignup:{
+        userName:'',
+        userEmail: '',
+        userPassword:'',
+      },
+      userLogin:{
+        userName:'',
+        userEmail: '',
+        userPassword:'',
       }
     }
   },
+  mounted(){
+  },
   methods:{
-
+    
+    //获取数据
+    getdata(){
+      console.log("同步")
+        var query = new AV.Query('_User');
+        query.get(this.currentUser.objectId).then((user)=> {
+          console.log(user.toJSON())
+          this.resume = user.toJSON().resume
+        }, function (error) {
+          // 异常处理
+        });
+    },
+    // 登陆成功
+    signinsuccess(user){
+      alert(`${user.username}欢迎回来`)
+      console.log(user)
+      this.currentUser.objectId = user.objectId
+      this.currentUser.userEmail = user.email
+      this.currentUser.userName = user.username
+      console.log("登录成功")
+      // this.save()
+    },
+    // 注册成功
+    signupsuccess(user){
+      alert('注册成功')
+      if(!!this.currentUser.objectId){
+        console.log(1)
+        return 
+      }else{
+        console.log(2)
+        this.currentUser.objectId = user.objectId
+        this.currentUser.userEmail = user.email
+        this.currentUser.userName = user.username
+      }
+    },
+    
+    // 注销
+    logout(){
+      console.log('注销')
+      AV.User.logOut();
+      // 现在的 currentUser 是 null 了
+      this.currentUser.objectId = ""
+      this.currentUser.userEmail = ""
+      this.currentUser.userName = ""
+      
+    },
+    // 保存
+    save(){
+        // 第一个参数是 className，第二个参数是 objectId
+        var user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
+        // 修改属性
+        user.set('resume', this.resume);
+        // 保存到云端
+        user.save().then(()=>{
+          alert('保存成功')
+        },(error)=>{
+          if(error.code===200){
+            alert('未登录,无法保存')
+          }
+        })  
+    },
   },
   components:{
     TopBar,
     Edit,
     Preview,
+    Login,
+    Signup,
   }
 }
 </script>

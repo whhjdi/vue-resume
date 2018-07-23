@@ -9,11 +9,8 @@
     @print="print"
     ></top-bar>
     <main>
-      
-      
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
       <Preview :resume="resume"></Preview>
-
     </main>
     <el-button type="primary" 
     @click="previewMode = false" class="closePreview" 
@@ -171,14 +168,14 @@ body{
   "PingFang SC","Hiragino Sans GB",
   "Microsoft YaHei","微软雅黑",
   Arial,sans-serif;
-
+  background: url('./assets/1.jpg') no-repeat;
+  background-size: cover;
   text-align: center;
   color: #2c3e50;
   height: 100vh;
   font-size:12px;
   display: flex;
   flex-direction: column;
-  box-shadow:0 0 3px hsla(0,0,0,0.5);
 }
 #app main {
     display:flex;
@@ -189,23 +186,6 @@ body{
     
   }
 
-@keyframes change{
-  0%{
-    background:#00264a;
-  }
-  25%{
-    background:#013f79;
-  }
-  50%{
-    background: #01529e;
-  }
-  80%{
-    background:#013f79;
-  }
-  100%{
-    background:#00264a;
-  }
-}
 .closePreview{
   position: fixed;
   top: 10px;

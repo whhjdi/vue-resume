@@ -31,6 +31,10 @@
         >保存
         <i class="el-icon-check el-icon--right"></i>
         </el-button>
+        <!-- <el-button  @click="$emit('changeTheme')" type="warning" size="small"
+        >换肤
+        <i class="el-icon-printer el-icon--right"></i>
+        </el-button> -->
         <el-button  @click="$emit('print')" type="warning" size="small"
         >打印
         <i class="el-icon-printer el-icon--right"></i>

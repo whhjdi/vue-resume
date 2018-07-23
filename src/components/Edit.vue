@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="edit">
       <aside>
         <ol>
           <li v-for="(icon,index) in icons" :key="icon" 
@@ -64,13 +64,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .container{
+    
+  .edit{
     min-width: 600px;
     background: #fff;
     margin: 20px;
     border-radius : 10px;
     display: flex;
     flex-direction: row;
+    
     >aside{
       width: 80px;
       height: 100%;
@@ -110,4 +112,9 @@ export default {
       }
     }
   }
+  @media print{
+      .edit{
+        display: none;
+      }
+    }
 </style>

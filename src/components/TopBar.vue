@@ -5,9 +5,10 @@
       <el-tooltip class="item" effect="dark" content="点击登录或注册"
        placement="right" 
        >
-      <el-button>
+      <el-button size="small">
          <router-link to="/login">
           <a href="#">{{currentuser.userName||'未登录'}}</a>
+          <i class="el-icon-more el-icon--right"></i>
         </router-link>
       </el-button>
     </el-tooltip>
@@ -15,13 +16,29 @@
     </div>
     <div class="right">
       <el-row>
-        <el-button type="primary" @click="$emit('getdata')" v-if="!!currentuser.objectId"
-        >同步</el-button>
-        <el-button type="info" @click="$emit('onClickLogout')" v-if="!!currentuser.objectId"
-        >注销</el-button>
-        <el-button type="success" @click="$emit('onClickSave')" v-show="!!currentuser.objectId"
-        >保存</el-button>
-        <el-button type="warning" @click="$emit('previewResume')" >预览</el-button>
+        <el-button type="success" @click="$emit('getdata')" 
+        v-if="!!currentuser.objectId" size="small"
+        >同步
+        <i class="el-icon-download el-icon--right"></i>
+        </el-button>
+        <el-button type="info" @click="$emit('onClickLogout')" 
+        v-if="!!currentuser.objectId"  size="small"
+        >注销
+         <i class="el-icon-caret-right el-icon--right"></i>
+        </el-button>
+        <el-button type="primary" @click="$emit('onClickSave')" 
+        v-show="!!currentuser.objectId" size="small"
+        >保存
+        <i class="el-icon-check el-icon--right"></i>
+        </el-button>
+        <el-button  @click="$emit('print')" type="warning" size="small"
+        >打印
+        <i class="el-icon-printer el-icon--right"></i>
+        </el-button>
+        <el-button @click="$emit('previewResume')" type="danger" size="small"
+          >预览
+          <i class="el-icon-view el-icon--right"></i>
+          </el-button>
       </el-row>
     </div>
     
@@ -47,6 +64,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  
   .clearfix::after{
     content: "";
     display: block;
@@ -60,7 +78,6 @@ export default {
       float: left;
       font-size: 18px;
       line-height: 18px;
-      padding-top: 6px;
       color: #303133;
       a{
         text-decoration: none;
@@ -74,7 +91,14 @@ export default {
       }
     .right{
       float: right;
-
+      font-size: 16px;
+      line-height: 16px;
+      margin-top: 3px;
   }
 }
+@media print{
+    .header{
+      display: none;
+    }
+  }
 </style>

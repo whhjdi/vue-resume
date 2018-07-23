@@ -1,6 +1,7 @@
 # resume-edit
 
 > A Vue.js project
+觉得好用送个小星星呀
 #沐雪简历编辑器
 ## 项目描述
 本项目是基于vue开发的在线简历编辑器,初步实现简历编辑,登录,注册等功能
@@ -12,9 +13,9 @@
 4. 使用vue-particles展现背景动态效果
 5. 使用LeanCloud作为后台数据库,实现登陆注册以及用户信息的保存
 6. 采用Element-ui进行前端表单验证
-
-
-## Build Setup
+## 如何使用
+1. 在线使用
+2. Build Setup
 
 ``` bash
 # install dependencies

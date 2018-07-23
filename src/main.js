@@ -7,6 +7,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import AV from 'leancloud-storage'
 import VueParticles from 'vue-particles'  
+
+
 Vue.use(VueParticles)  
 Vue.config.productionTip = false
 Vue.use(ElementUI);

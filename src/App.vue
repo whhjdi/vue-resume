@@ -6,6 +6,7 @@
     @onClickLogout="logout"
     @onClickSave="save"
     @getdata="getdata()"
+    @print="print"
     ></top-bar>
     <main>
       
@@ -14,8 +15,9 @@
       <Preview :resume="resume"></Preview>
 
     </main>
-    <el-button type="danger" 
-    @click="previewMode = false" class="closePreview" v-show="previewMode===true"
+    <el-button type="primary" 
+    @click="previewMode = false" class="closePreview" 
+    v-show="previewMode===true" size="small"
     >退出预览</el-button>
     <router-view
       @signinsuccess="signinsuccess"
@@ -139,6 +141,9 @@ mounted(){
           }
         })  
     },
+    print(){
+      window.print()
+    }
   },
   components:{
     TopBar,

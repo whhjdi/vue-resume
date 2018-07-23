@@ -6,11 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import AV from 'leancloud-storage'
-import particles from 'particles.js'
-
+import VueParticles from 'vue-particles'  
+Vue.use(VueParticles)  
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-Vue.use(particles)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

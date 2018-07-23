@@ -2,7 +2,9 @@
   <div class="header clearfix">
     <div class="left">
       <a href="#">Resume By muxue</a> |
-      <el-tooltip class="item" effect="dark" content="点击登录或注册" placement="right">
+      <el-tooltip class="item" effect="dark" content="点击登录或注册"
+       placement="right" 
+       >
       <el-button>
          <router-link to="/login">
           <a href="#">{{currentuser.userName||'未登录'}}</a>

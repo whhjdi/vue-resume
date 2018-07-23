@@ -65,7 +65,7 @@ export default {
 
 <style lang="scss" scoped>
   .container{
-    min-width: 600px;;
+    min-width: 600px;
     background: #fff;
     margin: 20px;
     border-radius : 10px;

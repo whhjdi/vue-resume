@@ -1,31 +1,54 @@
 <template>
-  <div class="signup">
-    <el-form  @submit.native.prevent class="signupForm" label="left">
-      <div class="title">Resume By muxue</div>
-      <div>注册</div>
-      <el-form-item label="用户名">
-        <el-input type="text" auto-complete="off" label="left"
-        v-model="userSignup.userName"></el-input>
-      </el-form-item>
-      <el-form-item label="邮箱">
-        <el-input type="text" auto-complete="off" label="left"
-        v-model="userSignup.userEmail"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" >
-        <el-input type="password" auto-complete="off" label="left"
-        v-model="userSignup.userPassword">></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button @click="closeSignup" type="danger">关闭</el-button>
-        <el-button @click="signup()" label="left" type="primary">
-          注册
-          </el-button>
-        <router-link to="/login">
-          登录
-        </router-link>
-      </el-form-item>
-    </el-form>
-  </div>
+<div class="signup">
+  <vue-particles color="#fff" :particleOpacity="1.0" :particlesNumber="100" shapeType="circle" :particleSize="4" linesColor="#fff"
+    :linesWidth="1" :lineLinked="true" :lineOpacity="0.8" :linesDistance="150" :moveSpeed="3" :hoverEffect="true" hoverMode="grab"
+    :clickEffect="true" clickMode="repulse" class="lizi">
+  </vue-particles>
+  <el-form :model="userSignup" status-icon :rules="rules2" ref="userSignup" @submit.native.prevent class="signupForm">
+    <div class="title">
+      <i>Resume By muxue</i>
+    </div>
+    <div>感谢有你</div>
+    <el-form-item label="用户名" class="item " prop="userName">
+      <el-input type="text" auto-complete="off" label="left" 
+      v-model="userSignup.userName" size="small"
+      placeholder="请输入用户名"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="邮箱" class="item" prop="userEmail">
+      <el-input type="text" auto-complete="off" label="left" 
+      v-model="userSignup.userEmail" size="small"
+      placeholder="请输入邮箱" 
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="密码" prop="userPassword" class="item">
+      <el-input type="password" v-model="userSignup.userPassword" 
+      auto-complete="off" size="small"
+      placeholder="请输入密码" 
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="确认密码" prop="userCheck" class="item">
+      <el-input type="password" v-model="userSignup.userCheck" 
+      auto-complete="off" size="small"
+      placeholder="请确认密码" 
+      ></el-input>
+    </el-form-item>
+    <el-form-item class="button">
+      <el-button @click="closeSignup()" type="danger">关闭</el-button>
+      <el-button @click="signup()" label="left" type="primary">
+        注册
+      </el-button>
+
+    </el-form-item>
+    <el-form-item class="item">
+      已有账号?
+      <router-link to="/login">
+        登录
+      </router-link>
+    </el-form-item>
+  </el-form>
+
+</div>
 </template>
 
 <script>
@@ -33,13 +56,72 @@ import AV from 'leancloud-storage'
 export default {
   props:['resume'],
   data() {
-    return {
-      userSignup:{
-        userName: '',
-        userEmail:'',
-        userPassword:''
-      },
-    }
+
+      var validatePass1 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入用户名'));
+        }else {
+          callback();
+        }
+      };
+      var validatePass2 = (rule, value, callback) => {
+        const mailReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
+        if (value === '') {
+          callback(new Error('请输入邮箱'));
+        }
+        setTimeout(() => {
+          if (mailReg.test(value)) {
+            callback()
+          } else {
+            callback(new Error('请输入正确的邮箱格式'))
+          }
+        }, 100)
+      };
+      var validatePass3 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        }else {
+          callback();
+        }
+      };
+      var validatePass4 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'));
+        } else if (value !== this.userSignup.userPassword) {
+          callback(new Error('两次输入密码不一致!'));
+        } else {
+          callback();
+        }
+      };
+      return {
+        userSignup: {
+          userCheck: '',
+          userName: '',
+          userEmail:'',
+          userPassword:'',
+          userCheck:''
+        },
+        rules2: {
+          userPassword: [
+            { validator: validatePass3, trigger: 'blur' }
+          ],
+          userCheck: [
+            { validator: validatePass4, trigger: 'blur' }
+          ],
+          userName: [
+            { validator: validatePass1, trigger: 'blur' }
+          ],
+          userEmail:[
+            { validator: validatePass2, trigger: 'blur' }
+          ]
+        },
+    // return {
+    //   userSignup:{
+    //     userName: '',
+    //     userEmail:'',
+    //     userPassword:''
+    //   },
+      }
   },
   methods: {
     closeSignup(){
@@ -67,9 +149,6 @@ export default {
           }
       });
     },
-  },
-  components: {
-
   }
 }
 </script>
@@ -78,20 +157,33 @@ export default {
     .signup{
     width: 100%;
     height: 100%;
-    background: #edf4fa;
-    padding: 40px;
-    
+    background: #f78989;
+    font-size: 16px;
+    .lizi{
+     height: 100%;
+    }
     .signupForm{
-      width: 30em;
-      margin: 0 auto;
-      border: 1px solid #0069d9;
-      padding: 20px;
-      position: relative;
+      width: 25em;
+      height: 35em;
+      background: #fff;
+      padding: 30px;
+      position: absolute;
+      top:50%;
+      left: 50%;
+      margin-top: -250px;
+      margin-left: -222px;
+      .item{
+        margin:5px;
+      }
+      .button{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
       .title{
         color: #0069d9;
         font-weight: bolder;
-        font-size: 22px;
-        margin-bottom: 20px;
+        font-size: 28px;
+        margin-bottom: 10px;
       }
     }
   }

@@ -8,8 +8,11 @@
     @getdata="getdata()"
     ></top-bar>
     <main>
+      
+      
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
       <Preview :resume="resume"></Preview>
+
     </main>
     <el-button type="danger" 
     @click="previewMode = false" class="closePreview" v-show="previewMode===true"
@@ -178,7 +181,9 @@ body{
     flex-direction: row;
     animation:5s change linear infinite;
     justify-content: space-around;
+    
   }
+
 @keyframes change{
   0%{
     background:#00264a;

@@ -7,7 +7,7 @@
             @click="currentTab=index"
           >
             <svg class="icon">
-                <use :xlink:href="`#icon-${icon}`"></use>
+                <use :xlink:href="`#icon-el-${icon}`"></use>
             </svg>
           </li>
         </ol>

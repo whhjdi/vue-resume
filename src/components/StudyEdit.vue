@@ -29,7 +29,7 @@
 			      value-format="yyyy-MM-dd">
 			    </el-date-picker>
           <el-form-item label="其他经历">
-					<el-input v-model="item.degree" placeholder="请输入获奖以及其他校园经历">					
+					<el-input v-model="item.work" placeholder="请输入获奖以及其他校园经历">					
 					</el-input>
 				</el-form-item>
         

@@ -38,24 +38,24 @@ export default {
       previewMode: false,
       resume: {
         profile:{
-          name:'muxue',
-          city:'北京',
+          name:'韩芸汐',
+          city:'魔都',
           number:'12345678901',
           age:'18',
           email:'example@example.com',
-          gender:'男',
+          gender:'女',
         },
         work:[
-          {company: '', time:'',time2:'',content: ''}
+          {company: '请输入公司名', time:'',time2:'',content: 'content'}
         ],
         study:[
-          {school:'北京大学',duration:'',duration2:'',degree:'本科'} 
+          {school:'大学名称',duration:'',duration2:'',degree:'学历',work:'在校期间表现优异,担任班长,团支书,积极xxxxxxxxxxx',} 
         ],
         project:[
-          {projectName:'',projectContent:'',skills:''}
+          {projectName:'项目名称',projectContent:'项目介绍',skills:'技术栈'}
         ],
         phone:{
-          weixin:'1',qq:'2',github:'3',blog:'4',zhihu:'5',weibo:'6'
+          weixin:'微信',qq:'qq',github:'github',blog:'博客',zhihu:'知乎',weibo:'微博'
           }
         
       },

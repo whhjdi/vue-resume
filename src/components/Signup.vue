@@ -35,7 +35,8 @@
     </el-form-item>
     <el-form-item class="button">
       <el-button @click="closeSignup()" type="danger">关闭</el-button>
-      <el-button @click="signup()" label="left" type="primary">
+      <el-button  @click="submitForm('userSignup')" label="left" type="primary"
+      >
         注册
       </el-button>
 
@@ -115,6 +116,7 @@ export default {
             { validator: validatePass2, trigger: 'blur' }
           ]
         },
+        buttonDisable:false
     // return {
     //   userSignup:{
     //     userName: '',
@@ -124,20 +126,28 @@ export default {
       }
   },
   methods: {
+    submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            this.signup()
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
     closeSignup(){
       this.$router.replace('/')
     },
     signup(){
         // 新建 AVUser 对象实例
       let user = new AV.User();
-      console.log(user)
       // 设置用户名
       user.setUsername(this.userSignup.userName);
       // 设置密码
       user.setPassword(this.userSignup.userPassword);
       // 设置邮箱
       user.setEmail(this.userSignup.userEmail);
-      console.log(1)
       user.signUp().then((newUser)=> {
         this.$emit('signupsuccess', newUser.toJSON());
         this.closeSignup()

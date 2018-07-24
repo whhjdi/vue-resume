@@ -81,7 +81,7 @@ mounted(){
   methods:{
     //获取数据
     getdata(){
-      console.log("同步")
+      // console.log("同步")
         var query = new AV.Query('_User');
         query.get(this.currentUser.objectId).then((user)=> {
           console.log(user.toJSON())
@@ -93,20 +93,18 @@ mounted(){
     // 登陆成功
     signinsuccess(user){
       alert(`${user.username}欢迎回来`)
-      console.log(user)
+      // console.log(user)
       this.currentUser.objectId = user.objectId
       this.currentUser.userEmail = user.email
       this.currentUser.userName = user.username
-      console.log("登录成功")
+      // console.log("登录成功")
       // this.save()
     },
     // 注册成功
     signupsuccess(user){
       if(!!this.currentUser.objectId){
-        console.log(1)
         return 
       }else{
-        console.log(2)
         this.currentUser.objectId = user.objectId
         this.currentUser.userEmail = user.email
         this.currentUser.userName = user.username
@@ -115,7 +113,6 @@ mounted(){
     
     // 注销
     logout(){
-      console.log('注销')
       AV.User.logOut();
       // 现在的 currentUser 是 null 了
       this.currentUser.objectId = ""
@@ -168,8 +165,8 @@ body{
   "PingFang SC","Hiragino Sans GB",
   "Microsoft YaHei","微软雅黑",
   Arial,sans-serif;
-  background: url('./assets/1.jpg') no-repeat;
-  background-size: cover;
+  /* background: url('./assets/1.jpg') no-repeat;
+  background-size: cover; */
   text-align: center;
   color: #2c3e50;
   height: 100vh;
@@ -182,7 +179,7 @@ body{
     display:flex;
     flex: 1;
     flex-direction: row;
-    animation:5s change linear infinite;
+    animation:10s change linear infinite;
     justify-content: space-around;
     
   }
@@ -193,5 +190,22 @@ body{
   right: 20px;
   cursor: pointer;
   color: white;
+}
+@keyframes change {
+  0%{
+    background: #4389A2;
+  }
+  25%{
+    background: #514A9D;
+  }
+  50%{
+    background: #232526;
+  }
+  75%{
+    background: #514A9D;
+  }
+  100%{
+    background: #4389A2;
+  }
 }
 </style>

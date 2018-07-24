@@ -164,6 +164,8 @@ export default {
                 }
             }
             .projectWrapper{
+                border-bottom: 1px solid #666;
+                padding-bottom: 20px;
                 margin: 20px 0;
                 .projectDescription{
                     margin-top: 15px;
@@ -184,6 +186,8 @@ export default {
             }
             .workWrapper{
                 margin: 10px 0;
+                border-bottom: 1px solid #666;
+                padding-bottom: 20px;
                 .workCompany{
                     margin-top:15px;
                     margin-bottom:15px;

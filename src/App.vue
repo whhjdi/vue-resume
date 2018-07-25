@@ -86,6 +86,7 @@ mounted(){
         query.get(this.currentUser.objectId).then((user)=> {
           console.log(user.toJSON())
           this.resume = user.toJSON().resume
+          alert('同步云端数据中成功')
         }, function (error) {
           // 异常处理
         });

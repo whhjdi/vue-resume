@@ -7,7 +7,7 @@
        >
       <el-button size="small">
          <router-link to="/login">
-          <a href="#">{{currentuser.userName||'未登录'}}</a>
+          <a href="#">{{currentuser.userName||'点击登录'}}</a>
           <i class="el-icon-more el-icon--right"></i>
         </router-link>
       </el-button>

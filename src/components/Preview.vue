@@ -84,6 +84,10 @@
                 </div>
                 <div class="item">
                 <svg class="icon">
+                    <use xlink:href="#icon-el-10"></use>
+                </svg>---{{resume.phone.qq}}</div>
+                <div class="item">
+                <svg class="icon">
                     <use xlink:href="#icon-el-github"></use>
                 </svg>---{{resume.phone.github}}</div>
                 <div class="item">

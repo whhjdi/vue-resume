@@ -167,10 +167,11 @@ export default {
     .signup{
     width: 100%;
     height: 100%;
-    background: #f78989;
+    
     font-size: 16px;
     .lizi{
      height: 100%;
+     background: #f78989;
     }
     .signupForm{
       width: 25em;

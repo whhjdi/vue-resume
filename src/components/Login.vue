@@ -92,10 +92,11 @@ export default {
   .login{
     width: 100%;
     height: 100%;
-    background: #66b1ff;
+
     font-size: 16px;
     .lizi{
      height: 100%;
+     background: #66b1ff;
     }
     .loginForm{
       width: 25em;

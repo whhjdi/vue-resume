@@ -86,7 +86,7 @@ mounted(){
         query.get(this.currentUser.objectId).then((user)=> {
           console.log(user.toJSON())
           this.resume = user.toJSON().resume
-          alert('同步云端数据中成功')
+          alert('同步云端数据成功,感谢使用muxue简历编辑器')
         }, function (error) {
           // 异常处理
         });
@@ -162,9 +162,8 @@ body{
   box-sizing: border-box;
 }
 #app {
-  font-family: "Helvetica Neue",Helvetica,
-  "PingFang SC","Hiragino Sans GB",
-  "Microsoft YaHei","微软雅黑",
+  font-family: "PingFang SC","Helvetica Neue",Helvetica,
+  "Hiragino Sans GB","Microsoft YaHei","微软雅黑",
   Arial,sans-serif;
   /* background: url('./assets/1.jpg') no-repeat;
   background-size: cover; */

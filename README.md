@@ -4,7 +4,7 @@
 觉得好用送个小星星呀
 ![avatar](./imgs/1.jpg)
 ![avatar](./imgs/2.jpg)
-![avatar](./imgs/3.jpg)
+![avatar](./imgs/4.jpg)
 #沐雪简历编辑器
 ## 项目描述
 本项目是基于vue开发的在线简历编辑器,初步实现简历编辑,登录,注册等功能

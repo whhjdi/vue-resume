@@ -167,7 +167,7 @@ export default {
     .signup{
     width: 100%;
     height: 100%;
-    
+    z-index: 999;
     font-size: 16px;
     .lizi{
      height: 100%;

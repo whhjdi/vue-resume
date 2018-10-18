@@ -10,7 +10,8 @@
     ></top-bar>
     <main>
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
-      <Preview :resume="resume"></Preview>
+      <!-- <Preview :resume="resume"></Preview> -->
+      <Test :resume="resume"></Test>
     </main>
     <el-button type="primary" 
     @click="previewMode = false" class="closePreview" 
@@ -30,7 +31,7 @@ import Preview from './components/Preview'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import AV from 'leancloud-storage'
-
+import Test from './components/test'
 export default {
   name: 'App',
   data(){
@@ -44,20 +45,21 @@ export default {
           age:'18',
           email:'example@example.com',
           gender:'女',
+          github:'github.com.whhjdi',
+          blog:'wanghandi.top',
+          graduate:'2017'
         },
         work:[
-          {company: '请输入公司名', time:'',time2:'',content: 'content'}
+          {company: '请输入公司名',job:'前端开发' ,time:'',time2:'',content: 'content'}
         ],
-        study:[
-          {school:'大学名称',duration:'',duration2:'',degree:'学历',work:'在校期间表现优异,担任班长,团支书,积极xxxxxxxxxxx',} 
-        ],
+        study:
+          {school:'北京大学',duration:'2013',duration2:'2017',degree:'学历',major:'软件工程'} ,
         project:[
-          {projectName:'项目名称',projectContent:'项目介绍',skills:'技术栈'}
+          {projectName:'vue简历编辑器（在线版）',code:'',preview:'',skill:'vue',projectContent:'请简单介绍你的项目'}
         ],
-        phone:{
-          weixin:'微信',qq:'qq',github:'github',blog:'博客',zhihu:'知乎',weibo:'微博'
-          }
-        
+        skills:[
+          {name:'vue',master:'熟悉',content:[{name:''}]}
+        ]
       },
       currentUser: {
         userName:'',
@@ -146,6 +148,7 @@ mounted(){
     Preview,
     Login,
     Signup,
+    Test
   }
 }
 </script>

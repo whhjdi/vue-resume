@@ -27,7 +27,7 @@
             <WorksEdit v-show="currentTab===3" :work="resume.work"></WorksEdit>
           </li>
           <li>
-            <PhoneEdit v-show="currentTab===4" :phone="resume.phone"></PhoneEdit>
+            <SkillsEdit v-show="currentTab===4" :skills="resume.skills"></SkillsEdit>
           </li>
         </ol>
       </div>
@@ -39,14 +39,13 @@ import ProfileEdit from './ProfileEdit'
 import WorksEdit from './WorksEdit'
 import StudyEdit from './StudyEdit'
 import ProjectEdit from './ProjectEdit'
-import PhoneEdit from './PhoneEdit'
-
+import SkillsEdit from './skillsEdit'
 export default {
   props:['resume'],
   name: 'Edit',
   data() {
     return {
-      icons:['meh','books','xiangmu1','woorks','phone'],
+      icons:['a','b','c','d','e'],
       currentTab: 0,
     }
   },
@@ -58,7 +57,7 @@ export default {
     WorksEdit,
     StudyEdit,
     ProjectEdit,
-    PhoneEdit,
+    SkillsEdit
   }
 }
 </script>
@@ -66,7 +65,7 @@ export default {
 <style lang="scss" scoped>
     
   .edit{
-    min-width: 600px;
+    max-width:600px;
     background: #fff;
     margin: 20px;
     border-radius : 10px;
@@ -74,10 +73,10 @@ export default {
     flex-direction: row;
     
     >aside{
-      width: 80px;
+      width: 60px;
       height: 100%;
       border-radius: 8px 0 0 8px;
-      background: rgb(32, 31, 48);
+      background: #409EFF;
       ol{
         li{
           list-style: none;
@@ -85,22 +84,27 @@ export default {
           cursor: pointer;
           margin: 0 0px 40px 5px;
           padding: 16px 0;
+          border-radius: 5px;
+
           .icon{
             width: 3em;
             height: 3em;
             fill: white;
+            opacity: 0.5;
           }
           &.active{
-            background: #fff;
+            // background: #fff;
+            
             .icon{
               fill:#000;
+              opacity: 1;
             }
           }
         }
       }
     }
     .main{
-      flex-grow: 1;
+      max-width:400px;
       margin: 0 auto;
       overflow: auto;
       ol{

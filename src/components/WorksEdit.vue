@@ -6,6 +6,9 @@
 				<el-form-item label="公 司">
 					<el-input v-model="list.company" placeholder="请输入公司名称"></el-input>
 				</el-form-item>
+        <el-form-item label="岗位">
+					<el-input v-model="list.job" placeholder="请输入工作岗位"></el-input>
+				</el-form-item>
 				<span class="demonstration">工作时间</span>
 			    <el-date-picker
 			      v-model="list.time"

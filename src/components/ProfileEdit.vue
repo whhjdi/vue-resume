@@ -20,6 +20,12 @@
       <el-form-item label="邮件">
 				<el-input v-model="profile.email" placeholder="email"></el-input>
 			</el-form-item>
+      <el-form-item label="博客">
+				<el-input v-model="profile.blog" placeholder="博客"></el-input>
+			</el-form-item>
+      <el-form-item label="github">
+				<el-input v-model="profile.github" placeholder="github"></el-input>
+			</el-form-item>
     </el-form>
 
   </div>

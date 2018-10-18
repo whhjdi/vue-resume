@@ -104,7 +104,7 @@ export default {
       }
     }
     .main{
-      max-width:400px;
+      min-width:300px; 
       margin: 0 auto;
       overflow: auto;
       ol{

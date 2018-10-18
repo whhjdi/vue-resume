@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>个人项目</h2>
+    <h2>个人技能</h2>
     <el-form @submit.native.prevent class="form-wrapper">
       <div class="wrap" v-for="(list,index) in skills" :key="index">
         <el-form-item label="技术名称">

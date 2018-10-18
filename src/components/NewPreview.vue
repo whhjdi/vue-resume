@@ -143,7 +143,7 @@
               <header class="item-hd">
                 <div>
                   <h3>{{list.projectName}}
-                    &nbsp
+                    &nbsp;
                     <a :href="list.code" v-show="!!list.code">源码</a>
                     <a :href="list.preview" v-show="!!list.preview">预览</a></h3>
                 </div>

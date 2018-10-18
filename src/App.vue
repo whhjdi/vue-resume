@@ -10,8 +10,7 @@
     ></top-bar>
     <main>
       <Edit :resume="resume" v-show="previewMode===false"></Edit>
-      <!-- <Preview :resume="resume"></Preview> -->
-      <Test :resume="resume"></Test>
+      <NewPreview :resume="resume"></NewPreview>
     </main>
     <el-button type="primary" 
     @click="previewMode = false" class="closePreview" 
@@ -27,11 +26,10 @@
 <script>
 import TopBar from './components/TopBar'
 import Edit from './components/Edit'
-import Preview from './components/Preview'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import AV from 'leancloud-storage'
-import Test from './components/test'
+import NewPreview from './components/NewPreview'
 export default {
   name: 'App',
   data(){
@@ -145,10 +143,9 @@ mounted(){
   components:{
     TopBar,
     Edit,
-    Preview,
     Login,
     Signup,
-    Test
+    NewPreview
   }
 }
 </script>

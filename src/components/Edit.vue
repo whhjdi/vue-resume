@@ -93,10 +93,7 @@ export default {
             opacity: 0.5;
           }
           &.active{
-            // background: #fff;
-            
             .icon{
-              fill:#000;
               opacity: 1;
             }
           }

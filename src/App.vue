@@ -43,8 +43,8 @@ export default {
           age:'18',
           email:'example@example.com',
           gender:'女',
-          github:'github.com.whhjdi',
-          blog:'wanghandi.top',
+          github:'https://github.com/whhjdi',
+          blog:'https://wanghandi.top',
           graduate:'2017'
         },
         work:[

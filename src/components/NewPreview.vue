@@ -21,7 +21,7 @@
       <section class="contact">
         <ul>
           <li>
-            <a :href="resume.profile.blog">
+            <a :href="resume.profile.blog" target='blank'>
               <span class="contact-link">博客</span>
               <span class="iconfont">
                 <svg width="16px" height="16px" viewBox="0 0 1024 1024">
@@ -31,7 +31,7 @@
             </a>
           </li>
           <li>
-            <a :href="resume.profile.github">
+            <a :href="resume.profile.github" target='blank'>
               <span class="contact-link">github</span>
               <span class="iconfont">
                 <svg width="16px" height="16px" viewBox="0 0 1024 1024">
@@ -41,7 +41,7 @@
             </a>
           </li>
           <li>
-            <a>
+            <a :href="`tel:${resume.profile.number}`" target='blank'>
               <span class="contact-link">{{resume.profile.number}}</span>
               <span class="iconfont">
                 <svg width="16px" height="16px" viewBox="0 0 1024 1024">
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="`mailto:${resume.profile.email}`">
+            <a :href="`mailto:${resume.profile.email}`" target='blank'>
               <span class="contact-link">{{resume.profile.email}}</span>
               <span class="iconfont">
                 <svg width="16px" height="16px" viewBox="0 0 1024 1024">

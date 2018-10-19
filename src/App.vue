@@ -183,7 +183,11 @@ body{
     justify-content: space-around;
     
   }
-
+@media print{
+#app main{
+    animation:0;
+  }
+}
 .closePreview{
   position: fixed;
   top: 10px;

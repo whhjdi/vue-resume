@@ -188,14 +188,13 @@
 		font-family: "PingFang SC", "Helvetica Neue", Helvetica, "Hiragino Sans GB",
 			"Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 		/* background: url('./assets/1.jpg') no-repeat;
-						  background-size: cover; */
+									  background-size: cover; */
 		text-align: center;
 		color: #2c3e50;
-		height: 100%;
+		height: 100vh;
 		font-size: 12px;
 		display: flex;
 		flex-direction: column;
-		overflow: auto;
 	}
 	#app > main {
 		flex: 1;
@@ -203,6 +202,7 @@
 		flex-direction: row;
 		animation: 10s change linear infinite;
 		justify-content: space-around;
+		align-items: center;
 	}
 	@media print {
 		#app > main {

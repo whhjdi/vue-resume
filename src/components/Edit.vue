@@ -64,12 +64,13 @@
 
 <style lang="scss" scoped>
 	.edit {
-		width: 600px;
+		width: 400px;
 		background: #fff;
 		margin: 20px;
 		border-radius: 10px;
 		display: flex;
 		flex-direction: row;
+		height: 800px;
 		> aside {
 			width: 60px;
 			height: 100%;
@@ -103,6 +104,7 @@
 		}
 		.main {
 			flex: 1;
+			width: 100%;
 			overflow: auto;
 			ol {
 				padding: 20px;

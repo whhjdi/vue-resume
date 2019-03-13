@@ -183,11 +183,11 @@
 
   .content {
     position: relative;
-    width: 1024px;
     margin: 20px;
     border-radius: 5px;
     background-color: #fff;
-    // box-shadow: 0 0 0 1px #eee;
+    max-height: 800px;
+    flex:1;
     overflow: auto;
     text-align: left;
     @media screen and (max-width: 1024px) {
